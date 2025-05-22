@@ -10,10 +10,22 @@ function App() {
     const email = form.email.value;
 
     console.log({ name, email });
+    const users = { name, email };
 
-    
-
-
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(users),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if(data.insertedId){
+          alert("successfully users added...")
+        }
+      });
   };
 
   return (
