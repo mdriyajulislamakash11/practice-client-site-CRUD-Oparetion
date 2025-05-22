@@ -35,7 +35,7 @@ const User = () => {
 
             <button onClick={() => handleDelet(user?._id)}>X</button>
 
-            <Link to={`/update/${user._id}`}>Update</Link>
+            <Link to={`/update/${user?._id}`}><button>Update</button></Link>
           </p>
         ))}
       </div>
